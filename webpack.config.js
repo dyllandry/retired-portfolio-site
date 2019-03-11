@@ -35,6 +35,18 @@ module.exports = {
         placeholder: true,
         placeholderSize: 21
       }
+    },{
+      test: /.js$/,
+      exclude: /node_modules/,
+      loader: "babel-loader",
+      options: {
+        presets: ['@babel/preset-env']
+      }
+    },{
+      test: /.js$/,
+      enforce: "pre",
+      exclude: /node_modules/,
+      loader: 'eslint-loader'
     }]
   },
 }
