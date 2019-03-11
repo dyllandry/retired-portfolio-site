@@ -3,15 +3,29 @@ include header.pug
   .tile.is-ancestor
     .tile.is-parent.is-6
       .tile.is-child.box
-        .level
+        .level.is-mobile
           .level-left
             h1#about.title About
           .level-right
             figure.image.is-48x48
               img.is-rounded.lazy(
                 src=require(`./me-144px.jpeg`).placeholder
+                alt=`Dylan Landry kindly waving and smiling.`
                 data-src=require(`./me-144px.jpeg`).src
                 data-srcset=require(`./me-144px.jpeg`).srcSet
               )
-        p.is-size-6
-          | Fullstack web developer in Toronto, Canada.
+        // p Fullstack web developer in Toronto, Canada.
+        ul.list
+          li.list-item Fullstack web developer in
+            span.icon
+              i.fas.fa-map-marker-alt
+            address.is-inline Toronto, Canada.
+          li.list-item Two bachelor's degrees in Economics and New Media (2018).
+          li.list-item Junior developer for three years during university.
+          li.list-item Dual citizenship and employable under the
+            a(
+              href="https://www.cicnews.com/2018/10/new-u-s-mexico-canada-trade-agreement-leaves-nafta-work-visa-provisions-in-place-1011237.html#gs.4pNRdXsS"
+              target="_blank"
+              rel="noopener"
+              title="\"Chapter 16 allows employers in Canada, the United States and Mexico to access professional labour from all three countries.\"")  USCMA work provisions
+            | .
