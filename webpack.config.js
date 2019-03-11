@@ -27,6 +27,14 @@ module.exports = {
     },{
       test: /\.pug$/,
       loader: `pug-loader`
+    },{
+      test: /\.(jpeg|jpg|png)$/,
+      loader: `responsive-loader`,
+      options: {
+        sizes: [300, 400, 600, 800, 1200],
+        placeholder: true,
+        placeholderSize: 21
+      }
     }]
   },
 }

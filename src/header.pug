@@ -1,0 +1,20 @@
+head
+  title Dylan: Web Developer 
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+body
+nav.navbar(role='navigation', aria-label='main navigation')
+  .navbar-brand
+    a.navbar-item(href='https://bulma.io')
+      // img(src='https://bulma.io/images/bulma-logo.png', width='112', height='28')
+      h1.title Dylan Landry
+    a.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', data-target='navbarBasicExample')
+      span(aria-hidden='true')
+      span(aria-hidden='true')
+      span(aria-hidden='true')
+  #navbarBasicExample.navbar-menu
+    .navbar-start
+      a.navbar-item(href=`#`)
+        | Home
+      a.navbar-item(href=`/#about`)
+        | About
+    .navbar-end
