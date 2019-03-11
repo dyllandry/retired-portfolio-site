@@ -8,6 +8,10 @@ include header.pug
             h1#about.title About
           .level-right
             figure.image.is-48x48
-              img.is-rounded(src=require(`./me-144px.jpeg`).src)
+              img.is-rounded.lazy(
+                src=require(`./me-144px.jpeg`).placeholder
+                data-src=require(`./me-144px.jpeg`).src
+                data-srcset=require(`./me-144px.jpeg`).srcSet
+              )
         p.is-size-6
           | Fullstack web developer in Toronto, Canada.
