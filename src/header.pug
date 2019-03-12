@@ -3,20 +3,22 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1')
   link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.7.2/css/all.css', integrity='sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr', crossorigin='anonymous')
 
-body
-nav.navbar(role='navigation', aria-label='main navigation')
+body#home.has-navbar-fixed-top
+nav.navbar.is-fixed-top(role='navigation', aria-label='main navigation')
   .navbar-brand
-    a.navbar-item(href='https://bulma.io')
-      // img(src='https://bulma.io/images/bulma-logo.png', width='112', height='28')
+    a.navbar-item(href='#')
       h1.title Dylan Landry
-    a.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', data-target='navbarBasicExample')
+    button#burger.navbar-burger.burger(type='button' role='button', aria-label='menu', aria-expanded='false', aria-haspopup='true' aria-controls='mobile-nav-menu')
       span(aria-hidden='true')
       span(aria-hidden='true')
       span(aria-hidden='true')
-  #navbarBasicExample.navbar-menu
+  .navbar-menu
     .navbar-start
-      a.navbar-item(href=`#`)
+      a.navbar-item(href=`#home`)
         | Home
-      a.navbar-item(href=`/#about`)
+      a.navbar-item(href=`#about`)
         | About
     .navbar-end
+  ul#mobile-nav-menu.list.has-text-right.is-radiusless(role=`menu` aria-laballedby=`burger`)
+    li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`#home` data-string=`home` data-index=`0`) Home
+    li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`#about` data-string=`about` data-index=`1`) About

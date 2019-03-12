@@ -7,3 +7,28 @@
 @import "../node_modules/bulma/sass/elements/title.sass";
 @import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/elements/image.sass";
+
+nav.navbar[aria-label="main navigation"] {
+  border-bottom: 1px solid $border;
+}
+
+#burger {
+  background-color: $body-background-color;
+  border: none;
+  border-left: 1px solid $border;
+  &.is-active {
+    background-color: $background;
+  }
+}
+
+#mobile-nav-menu {
+  display: none;
+  position: absolute;
+  background-color: $white-ter;
+  width: 100%;
+}
+
+[role="menu"] [role="menuitem"]:hover {
+  cursor: pointer;
+  background-color: $border;
+}
