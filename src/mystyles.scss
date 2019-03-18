@@ -40,3 +40,8 @@ nav.navbar[aria-label="main navigation"] {
 .is-clicking:focus {
   outline: none;
 }
+
+.header-anchor {
+  position: relative;
+  top: -120px; // header height + paddings
+}
