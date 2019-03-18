@@ -151,6 +151,7 @@ function open () {
   burger.setAttribute('aria-expanded', true)
   mobileMenu.style.display = `block`
   mobileMenu.style.height = `${window.innerHeight - header.offsetHeight}px`
+  mobileMenu.style.top = `${header.offsetHeight}`
 }
 
 function close () {
