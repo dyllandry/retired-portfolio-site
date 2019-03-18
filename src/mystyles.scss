@@ -45,3 +45,56 @@ nav.navbar[aria-label="main navigation"] {
   position: relative;
   top: -120px; // header height + paddings
 }
+
+.about--tile {
+  @include mobile {
+    padding-bottom: 18px;
+  }
+  @include tablet {
+    padding-bottom: 10px;
+  }
+  @include tablet {
+    padding-bottom: 10px;
+  }
+  padding-bottom: 0px;
+}
+
+.about--list .list-item {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.about--list .list-item:last-child {
+  padding-bottom: 0px;
+}
+
+.about--contact-icons {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 5px;
+  position: relative;
+  @include mobile {
+    margin-top: 14px;
+    right: -3px;
+  }
+  @include tablet {
+    right: -10px;
+  }
+  @include desktop {
+    right: -3px;
+  }
+}
+
+
+.about--contact-icons a {
+  @include mobile {
+    margin-left: 15px;
+  }
+  @include tablet {
+    margin-left: 9px;
+  }
+}
+
+.about--contact-icons a:last-child {
+  margin-left: 0px;
+}
