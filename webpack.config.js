@@ -1,15 +1,14 @@
 const path = require(`path`)
-const ExtractTextPlugin = require(`extract-text-webpack-plugin`)
 const HtmlWebpackPlugin = require(`html-webpack-plugin`)
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname + '/dist'),
+    path: path.resolve(__dirname, '/dist'),
     filename: 'index-bundle.js'
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: './dist'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -24,10 +23,10 @@ module.exports = {
         'css-loader',
         'sass-loader'
       ]
-    },{
+    }, {
       test: /\.pug$/,
       loader: `pug-loader`
-    },{
+    }, {
       test: /\.(jpeg|jpg|png)$/,
       loader: `responsive-loader`,
       options: {
@@ -35,18 +34,18 @@ module.exports = {
         placeholder: true,
         placeholderSize: 21
       }
-    },{
+    }, {
       test: /.js$/,
       exclude: /node_modules/,
-      loader: "babel-loader",
+      loader: 'babel-loader',
       options: {
         presets: ['@babel/preset-env']
       }
-    },{
+    }, {
       test: /.js$/,
-      enforce: "pre",
+      enforce: 'pre',
       exclude: /node_modules/,
       loader: 'eslint-loader'
     }]
-  },
+  }
 }
