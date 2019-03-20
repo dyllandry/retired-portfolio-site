@@ -36,7 +36,14 @@ nav.navbar[aria-label="main navigation"] {
 
 .header-anchor {
   position: relative;
-  top: -120px; // header height + paddings
+  top: -120px; // header height + some padding
+  @include mobile {
+    top: -65px; // header height
+  }
+}
+
+.is-child {
+  padding-top: 0px!important; // handle tile top padding individual for anchor reasons
 }
 
 //-------------------- Mobile Responsive Styles --------------------
@@ -49,7 +56,7 @@ body {
 
 .section {
   @include mobile {
-    padding: 0.8rem 0.75rem!important;
+    padding: 1.5rem 0.75rem!important;
   }
 }
 
@@ -62,7 +69,7 @@ body {
 .tile.is-ancestor {
   .tile.is-parent:first-child {
     .tile.is-child {
-      margin-top: 0!important;
+       margin-top: 0!important;
     }
   }
 }

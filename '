@@ -1,0 +1,20 @@
+const d = document
+d.addEventListener(`DOMContentLoaded`, () => {
+  let navElements = d.querySelectorAll(`.navbar-item, #mobile-nav-menu .list-item`)
+
+  navElements = Array.prototype.filter.call(navElements, element => {
+    let outlineSelector = element.getAttribute(`href`) || element.dataset.href
+    return outlineSelector !== `#`
+  })
+
+  navElements.forEach(element => {
+    let outlineSelector = element.dataset.hrefSelector
+    console.log(outlineSelector)
+    // const outlineElement = d.querySelector(outlineSelector)
+    // element.onclick = function () { outlineTemporarily(outlineElement, 3) }
+  })
+})
+
+function outlineTemporarily (element, duration) {
+  element.style.outline = `5px auto -webkit-focus-ring-color`
+}

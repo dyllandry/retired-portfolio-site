@@ -12,8 +12,10 @@
   }
 }
 
-.about--tile .level {
-  margin-bottom: 10px!important;
+.about--header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
 }
 
 .about--list .list-item {
