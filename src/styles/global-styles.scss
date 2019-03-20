@@ -38,3 +38,51 @@ nav.navbar[aria-label="main navigation"] {
   position: relative;
   top: -120px; // header height + paddings
 }
+
+//-------------------- Mobile Responsive Styles --------------------
+
+body {
+  @include mobile {
+    background-color: #f1f1f1;
+  }
+}
+
+.section {
+  @include mobile {
+    padding: 0.8rem 0.75rem!important;
+  }
+}
+
+.tile.is-parent .is-child {
+  @include mobile {
+    margin: 2rem 0!important;
+  }
+}
+
+.tile.is-ancestor {
+  .tile.is-parent:first-child {
+    .tile.is-child {
+      margin-top: 0!important;
+    }
+  }
+}
+
+.tile.is-ancestor {
+  .tile.is-parent:last-child {
+    .tile.is-child {
+      margin-bottom: 0!important;
+    }
+  }
+}
+
+.is-parent {
+  @include mobile {
+    padding: 0!important;
+  }
+}
+
+.box {
+  @include mobile {
+    border-radius: 0!important;
+  }
+}

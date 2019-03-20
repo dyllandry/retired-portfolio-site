@@ -1,4 +1,4 @@
-require('./styles/mystyles.scss')
+require('./styles/global-styles.scss')
 require('./styles/about-tile.scss')
 require('./styles/featured-work-tile.scss')
 require('./scripts/lazyload.js')
