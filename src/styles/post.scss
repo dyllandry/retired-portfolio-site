@@ -1,0 +1,50 @@
+@charset "utf-8";
+@import "~bulma/bulma";
+
+.post-content {
+  margin-left: auto;
+  margin-right: auto;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 { @extend .title }
+
+  h1 {
+    @extend .is-1;
+  }
+
+  h2 {
+    @extend .is-2;
+  }
+
+  h3 {
+    @extend .is-3;
+  }
+
+  h4 {
+    @extend .is-4;
+  }
+
+  h5 {
+    @extend .is-5;
+  }
+
+  p, ul, ol {
+    font-size: 21px;
+    margin: 20px 0px;
+  }
+
+  ul, ol {
+    list-style-position: inside;
+    list-style-type: initial;
+  }
+
+  p, li {
+    text-align: justify;
+  }
+}
+
+.set-content-width span {
+  font-size: 21px;
+}
