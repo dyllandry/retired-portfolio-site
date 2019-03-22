@@ -29,7 +29,6 @@ function findMore () {
   findMoreSearches++
   lazyImages = [].slice.call(document.querySelectorAll(`img.lazy, .lazy-background-image`))
   if (useObserver) lazyImages.forEach(img => observer.observe(img))
-  console.log(`Looking fore more: ${lazyImages}`)
   if (findMoreSearches >= findMoreMaxSearches) clearInterval(findMoreIntervalId)
 }
 

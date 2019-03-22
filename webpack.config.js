@@ -7,7 +7,7 @@ module.exports = {
     firstPost: `./src/posts/First Post/first-post.js`
   },
   output: {
-    path: path.resolve(__dirname, '/dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name]-bundle.js'
   },
   devServer: {

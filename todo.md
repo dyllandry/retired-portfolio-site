@@ -1,10 +1,10 @@
 # Todo
-- first post is almost a megabyte
 - Production: fouc
   - fouc related? blog post jumps in
-- RESPONSIVE IMAGES:
-  - lazyload needs to be refactored to work past startup, like whms
-  - lazyload post images
+    - fade in? Hide whole site before blogpost?
+- BUNDLE SIZE
+  - icons are biggest things on index (70kb each)
+  - manually declare size for thumbnail images? (is loading 600px wide version for 100px wide slot)
 - simplify adding blog post process
   - But... Having an entry for each blogpost would allow for unique javascript per page..
     - a blogpost js file could EXTEND (or something) a base one.

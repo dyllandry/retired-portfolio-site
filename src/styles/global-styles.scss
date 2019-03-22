@@ -1,5 +1,19 @@
 @charset "utf-8";
-@import "~bulma/bulma";
+@import "~bulma/sass/base/minireset";
+@import "~bulma/sass/utilities/functions";
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/mixins";
+@import "~bulma/sass/utilities/derived-variables";
+@import "~bulma/sass/components/navbar";
+@import "~bulma/sass/components/list";
+@import "~bulma/sass/base/generic";
+@import "~bulma/sass/base/helpers";
+@import "~bulma/sass/layout/section";
+@import "~bulma/sass/elements/image";
+@import "~bulma/sass/elements/content";
+@import "~bulma/sass/elements/container";
+@import "~bulma/sass/elements/title";
+@import "~bulma/sass/layout/section";
 
 nav.navbar[aria-label="main navigation"] {
   border-bottom: 1px solid $border;
@@ -34,17 +48,7 @@ nav.navbar[aria-label="main navigation"] {
   outline: none;
 }
 
-.header-anchor {
-  position: relative;
-  top: -120px; // header height + some padding
-  @include mobile {
-    top: -65px; // header height
-  }
-}
 
-.is-child {
-  padding-top: 0px!important; // handle tile top padding individual for anchor reasons
-}
 
 //-------------------- Mobile Responsive Styles --------------------
 
@@ -57,39 +61,5 @@ body {
 .section {
   @include mobile {
     padding: 1.5rem 0.75rem!important;
-  }
-}
-
-.tile.is-parent .is-child {
-  @include mobile {
-    margin: 2rem 0!important;
-  }
-}
-
-.tile.is-ancestor {
-  .tile.is-parent:first-child {
-    .tile.is-child {
-       margin-top: 0!important;
-    }
-  }
-}
-
-.tile.is-ancestor {
-  .tile.is-parent:last-child {
-    .tile.is-child {
-      margin-bottom: 0!important;
-    }
-  }
-}
-
-.is-parent {
-  @include mobile {
-    padding: 0!important;
-  }
-}
-
-.box {
-  @include mobile {
-    border-radius: 0!important;
   }
 }
