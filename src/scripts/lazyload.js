@@ -1,57 +1,87 @@
-document.addEventListener('DOMContentLoaded', function () {
-  var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'))
+const useObserver = `IntersectionObserver` in window
+let lazyImages = []
+let masonry
+let observer
+let rectIntervalId
+let findMoreIntervalId
+let findMoreSearches = 0
+let findMoreMaxSearches = 3
 
-  if ('IntersectionObserver' in window) {
-    let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          let lazyImage = entry.target
-          lazyImage.src = lazyImage.dataset.src
-          lazyImage.srcset = lazyImage.dataset.srcset
-          lazyImage.classList.remove('lazy')
-          lazyImageObserver.unobserve(lazyImage)
-        }
-      })
-    })
+export default {
+  init: init
+}
 
-    lazyImages.forEach(function (lazyImage) {
-      lazyImageObserver.observe(lazyImage)
-    })
-  } else {
-    // fall back to utilizing bounding rects
-    let active = false
-
-    const lazyLoad = function () {
-      if (active === false) {
-        active = true
-
-        setTimeout(function () {
-          lazyImages.forEach(function (lazyImage) {
-            if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== 'none') {
-              lazyImage.src = lazyImage.dataset.src
-              lazyImage.srcset = lazyImage.dataset.srcset
-              lazyImage.classList.remove('lazy')
-
-              lazyImages = lazyImages.filter(function (image) {
-                return image !== lazyImage
-              })
-
-              if (lazyImages.length === 0) {
-                document.removeEventListener('scroll', lazyLoad)
-                window.removeEventListener('resize', lazyLoad)
-                window.removeEventListener('orientationchange', lazyLoad)
-              }
-            }
-          })
-
-          active = false
-        }, 200)
-      }
+function init (options) {
+  setTimeout(() => {
+    lazyImages = [].slice.call(document.querySelectorAll(`img.lazy, .lazy-background-image`))
+    findMoreIntervalId = setInterval(findMore, 300) // time between searches
+    masonry = (options !== undefined && options.masonry !== undefined) ? options.masonry : undefined
+    if (useObserver) {
+      observer = makeObserver()
+      lazyImages.forEach(img => observer.observe(img))
+    } else {
+      startRectInterval()
     }
+  }, 50) // delay until first search
+}
 
-    lazyLoad()
-    document.addEventListener('scroll', lazyLoad)
-    window.addEventListener('resize', lazyLoad)
-    window.addEventListener('orientationchange', lazyLoad)
-  }
-})
+function findMore () {
+  findMoreSearches++
+  lazyImages = [].slice.call(document.querySelectorAll(`img.lazy, .lazy-background-image`))
+  if (useObserver) lazyImages.forEach(img => observer.observe(img))
+  console.log(`Looking fore more: ${lazyImages}`)
+  if (findMoreSearches >= findMoreMaxSearches) clearInterval(findMoreIntervalId)
+}
+
+function startRectInterval () {
+  if (rectIntervalId !== undefined) return
+  rectIntervalId = setInterval(() => {
+    lazyImages.forEach(image => {
+      if (image.getBoundingClientRect().top <= window.innerHeight) {
+        if (image.getBoundingClientRect().bottom >= 0) {
+          if (getComputedStyle(image).display !== 'none') {
+            if (image.classList.contains('lazy')) {
+              image.srcset = image.dataset.srcset
+              image.classList.remove('lazy')
+            } else if (image.classList.contains('lazy-background-image')) {
+              image.style.backgroundImage = `url("${image.dataset.src}")`
+              image.classList.remove('lazy-background-image')
+            }
+            lazyImages = lazyImages.filter(imageInArray => {
+              return imageInArray !== image
+            })
+
+            if (masonry !== undefined && image.classList.contains(masonry.selector)) {
+              masonry.object.layout()
+            }
+          }
+        }
+      }
+    })
+
+    if (lazyImages.length === 0 && findMoreSearches >= findMoreMaxSearches) {
+      clearInterval(rectIntervalId)
+      rectIntervalId = undefined
+    }
+  }, 500)
+}
+
+function makeObserver () {
+  return new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return
+      const image = entry.target
+      if (image.classList.contains('lazy')) {
+        image.srcset = image.dataset.srcset
+        image.classList.remove('lazy')
+      } else if (image.classList.contains('lazy-background-image')) {
+        image.style.backgroundImage = `url("${image.dataset.src}")`
+        image.classList.remove('lazy-background-image')
+      }
+      observer.unobserve(image)
+      if (masonry !== undefined && image.classList.contains(masonry.selector)) {
+        masonry.object.layout()
+      }
+    })
+  })
+}

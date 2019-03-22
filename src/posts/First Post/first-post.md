@@ -22,7 +22,7 @@ Lorem ipsum dolor amet 3 wolf moon taiyaki VHS cornhole flexitarian. Pork belly 
 *Lorem ipsum dolor amet* 3 wolf moon taiyaki VHS cornhole flexitarian. Pork belly VHS cornhole af. Master cleanse yuccie occupy mlkshk, typewriter gastropub `skateboard shaman` next level stumptown. Snackwave chia copper mug, kombucha roof party vegan sriracha shabby chic austin skateboard.
 
 <figure class='image is-3by1'>
-  <img class='post-image' data-src='markdown inline image.png'/>
+  <img class='post-image' data-src='markdown-inline-image.png'/>
 </figure>
 
 - List item 1

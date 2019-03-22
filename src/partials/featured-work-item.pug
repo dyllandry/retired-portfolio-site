@@ -2,7 +2,11 @@ li.list-item
   article.media
     figure.media-left
       p.image.is-128x128
-        img(src=thumbnail.src)
+        img.lazy(
+          src=thumbnail.placeholder
+          data-src=thumbnail.src
+          data-srcset=thumbnail.srcSet
+        )
     .media-content
       .content
         h3.title.is-5.featured-work-item--title= title

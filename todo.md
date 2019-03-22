@@ -1,5 +1,7 @@
 # Todo
+- first post is almost a megabyte
 - Production: fouc
+  - fouc related? blog post jumps in
 - RESPONSIVE IMAGES:
   - lazyload needs to be refactored to work past startup, like whms
   - lazyload post images
