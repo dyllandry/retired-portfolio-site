@@ -11,9 +11,9 @@
 @import "~bulma/sass/elements/icon";
 @import "~bulma/sass/elements/box";
 
-.tile.is-parent .is-child {
+.index-section {
   @include mobile {
-    margin: 2rem 0!important;
+    padding: 0.8rem 0.75rem!important;
   }
 }
 
@@ -21,14 +21,6 @@
   .tile.is-parent:first-child {
     .tile.is-child {
        margin-top: 0!important;
-    }
-  }
-}
-
-.tile.is-ancestor {
-  .tile.is-parent:last-child {
-    .tile.is-child {
-      margin-bottom: 0!important;
     }
   }
 }
@@ -49,7 +41,7 @@
   position: relative;
   top: -120px; // header height + some padding
   @include mobile {
-    top: -65px; // header height
+    top: -53px; // header height
   }
 }
 

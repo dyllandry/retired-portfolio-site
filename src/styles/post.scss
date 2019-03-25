@@ -3,6 +3,18 @@
 @import "~bulma/sass/utilities/derived-variables";
 @import "~bulma/sass/elements/title";
 
+body {
+  @include mobile {
+    background-color: $white!important;
+  }
+}
+
+.section {
+  @include mobile {
+    padding-top: 14px!important;
+  }
+}
+
 .post-content {
   opacity: 0;
   margin-left: auto;
