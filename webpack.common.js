@@ -1,5 +1,6 @@
 const path = require(`path`)
 const HtmlWebpackPlugin = require(`html-webpack-plugin`)
+const CleanWebpackPlugin = require(`clean-webpack-plugin`)
 
 module.exports = {
   entry: {
@@ -14,6 +15,7 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: `./src/index.pug`,
       filename: `index.html`,
@@ -28,13 +30,6 @@ module.exports = {
   ],
   module: {
     rules: [{
-      test: /\.scss$/,
-      use: [
-        'style-loader',
-        'css-loader',
-        'sass-loader'
-      ]
-    }, {
       test: /\.pug$/,
       loader: `pug-loader`
     }, {

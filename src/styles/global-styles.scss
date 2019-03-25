@@ -48,7 +48,9 @@ nav.navbar[aria-label="main navigation"] {
   outline: none;
 }
 
-
+.icon.lazy {
+  opacity: 0;
+}
 
 //-------------------- Mobile Responsive Styles --------------------
 
