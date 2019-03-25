@@ -11,11 +11,27 @@ body {
 
 .section {
   @include mobile {
-    padding: 0.8rem 14px!important;
+    padding: 0.8rem 0px!important;
   }
 }
 
 .post-content {
+  @include mobile {
+    ul,
+    ol,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5{
+      padding: 0.8rem 14px;
+    }
+    figure {
+      // images go to left and right edge
+      padding: 0.8rem 0px;
+    }
+  }
   opacity: 0;
   margin-left: auto;
   margin-right: auto;
