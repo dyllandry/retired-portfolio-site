@@ -10,6 +10,7 @@ body {
 }
 
 .section {
+  padding: 0.8rem 3rem!important;
   @include mobile {
     padding: 0.8rem 0px!important;
   }
@@ -76,6 +77,22 @@ body {
     @include mobile {
       text-align: unset;
     }
+  }
+
+  blockquote {
+    text-align: justify;
+    font-style: italic;
+    @include mobile {
+      text-align: unset;
+      margin: 25px 10px 50px 25px;
+    }
+    @include from($tablet) {
+      margin: 75px 75px;
+    }
+  }
+
+  .quote-attribution {
+    float: right;
   }
 }
 

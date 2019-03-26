@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require(`clean-webpack-plugin`)
 module.exports = {
   entry: {
     index: './src/index.js',
-    firstPost: `./src/posts/First Post/first-post.js`
+    whms: `./src/posts/WHMS/whms.js`
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -23,9 +23,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: `./src/posts/post.pug`,
-      chunks: [`firstPost`],
-      filename: `first-post.html`,
-      title: `First Tab`
+      chunks: [`whms`],
+      filename: `whms.html`,
+      title: `White Horse Masonry Services`
     })
   ],
   module: {
@@ -56,6 +56,9 @@ module.exports = {
     }, {
       test: /\.md$/,
       loader: `frontmatter-markdown-loader`
+    }, {
+      test: /\.mp4$/,
+      loader: `file-loader?name=videos/[name].[ext]`
     }]
   }
 }
