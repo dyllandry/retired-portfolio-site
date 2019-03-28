@@ -2,11 +2,13 @@ const path = require(`path`)
 const HtmlWebpackPlugin = require(`html-webpack-plugin`)
 const CleanWebpackPlugin = require(`clean-webpack-plugin`)
 const CopyWebpackPlugin = require(`copy-webpack-plugin`)
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
   entry: {
     index: './src/index.js',
-    whms: `./src/posts/WHMS/whms.js`
+    whms: `./src/posts/WHMS/whms.js`,
+    portfolioSite: `./src/posts/portfolio-site/portfolio-site.js`
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -16,6 +18,10 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
+    new FaviconsWebpackPlugin({
+      logo: './src/d-favicon.png',
+      title: `Dylan's Portfolio Site`
+    }),
     new CopyWebpackPlugin([
       { from: `src/copy-to-dist`, to: `./` }
     ]),
@@ -30,6 +36,12 @@ module.exports = {
       chunks: [`whms`],
       filename: `whms.html`,
       title: `White Horse Masonry Services`
+    }),
+    new HtmlWebpackPlugin({
+      template: `./src/posts/post.pug`,
+      chunks: [`portfolioSite`],
+      filename: `portfolio-site.html`,
+      title: `Dylan's Portfolio Site`
     })
   ],
   module: {
@@ -43,7 +55,7 @@ module.exports = {
         sizes: [300, 400, 600, 800, 1200],
         placeholder: true,
         placeholderSize: 21,
-        name: `[name]-[width].[ext]`
+        name: `[name]-[hash].[ext]`
       }
     }, {
       test: /.js$/,

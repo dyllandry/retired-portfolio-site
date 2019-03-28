@@ -1,6 +1,6 @@
 ---
 title: White Horse Masonry Services
-description: Letting the work of a master mason speak for itself through an image heavy website. Built on a webpack static site generator with responsive image plugins and masonry layout.
+description: Letting the work of a master mason speak for itself. Built on a static webpack pipeline, responsive image plugins, a masonry gallery, and GitHub pages.
 link: /whms.html
 featured: true
 ---

@@ -10,6 +10,7 @@
   "dependencies": {
     "clean-webpack-plugin": "^2.0.1",
     "copy-webpack-plugin": "^5.0.2",
+    "favicons-webpack-plugin": "0.0.9",
     "frontmatter-markdown-loader": "^1.6.0",
     "mini-css-extract-plugin": "^0.5.0",
     "webpack-cli": "^3.2.3",

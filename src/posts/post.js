@@ -12,7 +12,6 @@ const setPostContentWidth = require(`../scripts/set-post-content-width.js`)
 const imageContext = require.context(`./`, true, /\.(png|jpeg|jpg)$/)
 const images = imageContext.keys().map(imageContext)
 
-// FIXME
 function build (markdownFileName) {
   // require context all markdown
   const markdownContext = require.context('./', true, /\.md$/)
