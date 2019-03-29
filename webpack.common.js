@@ -3,13 +3,15 @@ const HtmlWebpackPlugin = require(`html-webpack-plugin`)
 const CleanWebpackPlugin = require(`clean-webpack-plugin`)
 const CopyWebpackPlugin = require(`copy-webpack-plugin`)
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const buildPosts = require(`./src/build-posts.js`)
+const merge = require(`merge`)
+
+const entry = merge(
+  { index: './src/index.js' },
+  buildPosts.entries)
 
 module.exports = {
-  entry: {
-    index: './src/index.js',
-    whms: `./src/posts/WHMS/whms.js`,
-    portfolioSite: `./src/posts/portfolio-site/portfolio-site.js`
-  },
+  entry,
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name]-bundle.js'
@@ -30,20 +32,8 @@ module.exports = {
       template: `./src/index.pug`,
       filename: `index.html`,
       chunks: ['index']
-    }),
-    new HtmlWebpackPlugin({
-      template: `./src/posts/post.pug`,
-      chunks: [`whms`],
-      filename: `whms.html`,
-      title: `White Horse Masonry Services`
-    }),
-    new HtmlWebpackPlugin({
-      template: `./src/posts/post.pug`,
-      chunks: [`portfolioSite`],
-      filename: `portfolio-site.html`,
-      title: `Dylan's Portfolio Site`
     })
-  ],
+  ].concat(buildPosts.GetPlugins()),
   module: {
     rules: [{
       test: /\.pug$/,

@@ -1,9 +1,9 @@
 extends ../layout.pug
 block append head
-  title= htmlWebpackPlugin.options.title
+  title= title
 block content
   .section
     .container
-      main.post-content
+      main.post-content !{ postHtml }
       .set-content-width(style={ visibility: `hidden` })
         span 0123456789

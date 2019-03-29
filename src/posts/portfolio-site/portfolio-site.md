@@ -53,7 +53,7 @@ Though, I am still figuring out how to write my code *around* Webpack. That is, 
 #### Technically 
 Technically what I am doing is pairing each markdown file with its own JavaScript file. Then, from my Webpack config file, I am listing each JavaScript file as its own entry point so that Webpack will process it.
 
-I'd like to slim that down and leave Webpack to find the markdown paths on its own. Though, for my <a href="https://github.com/jantimon/html-webpack-plugin" target_="blank">html webpack plugin</a> to emit an html page, it requires a unique Webpack entry.
+I'd like to slim that down and leave Webpack to find the markdown paths on its own. Though, for my <a href="https://github.com/jantimon/html-webpack-plugin" target"_blank">html webpack plugin</a> to emit an html page, it requires a unique Webpack entry.
 
 I'm still working out a better process. Though, I have put this problem on hold as right now as the current situation is "*good enough*". There are other things that I can work on which provide more benefit to both myself and the end user. For example improving the site's content.
 
