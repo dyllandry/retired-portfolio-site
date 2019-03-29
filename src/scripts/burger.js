@@ -64,8 +64,6 @@ function pressMobileMenuItem (event) {
   switch (event.code) {
     case 'Enter':
     case undefined:
-      close()
-      burger.focus()
       location = event.target.dataset.href
       break
 

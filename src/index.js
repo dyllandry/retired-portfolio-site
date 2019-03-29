@@ -13,5 +13,6 @@ require(`./scripts/handle-outline.js`)
 require(`./scripts/nav-location-outline.js`)
 require(`./scripts/featured-work.js`)
 require(`./scripts/fade-in-icons.js`)
+require(`./scripts/fade-in-index.js`)
 
-document.addEventListener('DOMContentLoaded', lazyload.init)
+document.addEventListener('DOMContentLoaded', () => lazyload.init())

@@ -11,7 +11,11 @@
 @import "~bulma/sass/elements/icon";
 @import "~bulma/sass/elements/box";
 
+
+
 .index-section {
+  opacity: 0;
+  transition: opacity 0.5s;
   @include mobile {
     padding: 0.8rem 0.75rem!important;
   }
