@@ -35,25 +35,54 @@ As a web developer I am always improving. How I believe my site should work, or 
 
 The homepage layout of this site is purposefuly built using a tile layout provided by the <a href="https://bulma.io/documentation/layout/tiles/" target="_blank">Bulma CSS framework</a>. And like tiles, it can be made to fit any arrangement. This site affords easily adding or removing pieces.
 
+#### Easy to Add Posts
+Originally, adding more posts to the site was tedious. For each addition, Webpack's config files had to be reconfigured. Multiple files had to be created, some mostly blank, in order to support Webpack's features.
+
+After finishing an early version of the site and developing a better understanding of how Webpack works, I decided to improve the workflow of adding more posts. Now, additional posts are automatically detected and added to the site, all with very little work required of the end user.
+
+##### Technical Workflow Description
+
+Considering the constraints of Webpack and the <a href="https://github.com/jantimon/html-webpack-plugin" target="_blank">html webpack plugin</a> I was using, I built a small build pipeline that runs prior to Webpack's configuration.
+
+This build pipeline will search a `./posts/` directory for any markdown files. Given any found markdown file, the pipeline will immediately build the markdown's respective html file and updated Webpack's configuration file to know of it.
+
+Whereas Webpack's configuration file previosuly had to be modified by hand, it was now automated.
+
+My new build pipeline makes adding additional posts a breeze. This project's GitHub repository's <a href="https://github.com/dyllandry/final-portfolio-site/blob/master/readme.md" target="_blank" aria-label="Dylan's portfolio project GitHub repository's read-me file.">readme.md file</a> details the process.
+
+However, I did have to give up a feature of Webpack that I had previously thought was too good to lose.
+
+Webpack, given awareness of the file, can reload itself whenever the file changes, otherwise known as hot reloading. This allows your development environment to always be up to date with your source files.
+
+However, hot reloading requires that Webpack be aware of the original source file. Given that my previous build pipeline exports the markdown as html on its own, weback is only aware of the passed html.
+
+Therefore changing the markdown does not trigger Webpack to reload. Instead, for Webpack to serve the new file once a change has been made, the entire Webpack development server must be restarted.
+
+While this is a cost, I think it is a cost which is out weighed by the ease-of-use benefit the new build pipeline offers.
+
+And a solution is not far off. It would not be difficult to start my own hot reload process that runs adjacent to Webpack. As long as the markdown is re-exported to html, Webpack will notice the changed html and trigger a reload.
+
 ## Things to Improve
 I'd like to acknowledge what I could do better with this site. Because I believe it is okay to be ignorant, especially if you are aware of it.
 
 > "There are known knowns; there are things we know we know. We also know there are known unknowns; that is to say we know there are some things we do not know. But there are also unknown unknowns — the ones we don't know we don't know."<span class="quote-attribution">— Donald Rumsfeld</span>
 
-### An Easier Markdown Workflow
-If a site's main substance is content like written blog posts, then adding additional blog posts should be easy. For this website, markdown files are processed into webpages by <a href="https://webpack.js.org" target="_blank">Webpack</a>, a module bundler.
+### Simplicity is Difficult
+A focus of my site is to deliver information as efficiently as I can on the home page. There are three sections: about me, featured work, and my blog, which I think deliver the majority of what visitors would be looking for.
 
-Webpack introduces a particular workflow. To recieve Webpack's benefits, you must adhere your project to this workflow. Though, of course, you can be creative. 
+Though, to adhere to people's navigational expectations of how a site should work, I implemented a navigation bar across the top of the site. When on the home page, these links just highlight the sections already present.
 
-The problem is that I am still learning what Webpack is capable of. The available documentation well describes how to write functionality within Webpack, for example how to directly use its features.
+My effort was to simplify the visitor's experience by condensing most desired information into just the home page. However, in tandem with adhearing to a common navigation pattern that is in this case unnecessary, the result may be an experience that is actually convoluted for some. 
 
-Though, I am still figuring out how to write my code *around* Webpack. That is, how can I structure and build my project to augment Webpack's existant capabilities.
+Like Steve Jobs said, "Simple can be harder than complex."
 
-#### Technically 
-Technically what I am doing is pairing each markdown file with its own JavaScript file. Then, from my Webpack config file, I am listing each JavaScript file as its own entry point so that Webpack will process it.
+This site will continue to improve as I receive more feedback from users. Maybe the navigation bar will remain, or possibly it will be removed. Or something else will take its place entirely.
 
-I'd like to slim that down and leave Webpack to find the markdown paths on its own. Though, for my <a href="https://github.com/jantimon/html-webpack-plugin" target"_blank">html webpack plugin</a> to emit an html page, it requires a unique Webpack entry.
+## Conclusion
+Overall I am happy with my portfolio site. One of the important factors for my experience as its maintainer is the site's room for growth. If I eventually think of a way it should change, I won't feel constricted by the systems already in place.
 
-I'm still working out a better process. Though, I have put this problem on hold as right now as the current situation is "*good enough*". There are other things that I can work on which provide more benefit to both myself and the end user. For example improving the site's content.
+Furthermore, should I complete a new project, or write development tutorial, or choose to share my ideas on various topics, this site can easily facilitate the addition of new pages.
 
-I'll update this post as soon as I find a better way. I believe I'll likely figure it out by working on entirely other projects that approach this problem space from other perspectives. Until then, Ciao. 👋🏼
+And yes, it's true, many of these features come packaged with pre-existing static site builders. 
+
+Although, this is all for the sake of learning, and now I know first hand some of the necessary mechanisms for those systems to operate. If I ever work on a similar system, either identical or only slightly related, I will be much better equipped.
