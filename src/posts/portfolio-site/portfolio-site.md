@@ -1,8 +1,7 @@
 ---
 title: My Portfolio Site
 description: This site is an ever improving bundle of responsive and accessibility goodness. Built on Webpack, markdown, bulma css, and GitHub pages.
-link: /portfolio-site.html
-featured: true
+category: featured
 ---
 # Building my Portfolio Site
 I've restarted my portfolio site a dozen times. Then I decided to name the site's Github repository <a href="https://github.com/dyllandry/final-portfolio-site" target="_blank" aria-label="Link to Dylan Landry's portfolio site's Github repository.">*final-portolio-site*</a> and see through it to the end.

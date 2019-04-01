@@ -5,5 +5,13 @@ block content
   .section.index-section
     .container
       .tile.is-ancestor
-        include partials/about-tile.pug
-        include partials/featured-work-tile.pug
+        .tile.is-vertical.is-6
+          include partials/about-tile.pug
+          .header-anchor#blog-tablet
+          .tile.is-hidden-mobile.blog-tile--parent
+            include partials/blog.pug
+        .tile.is-vertical.is-6
+          include partials/featured-work-tile.pug
+          .header-anchor#blog-mobile
+          .tile.is-hidden-tablet.blog-tile--parent
+            include partials/blog.pug

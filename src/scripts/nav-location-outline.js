@@ -3,12 +3,12 @@ d.addEventListener(`DOMContentLoaded`, () => {
   let navElements = d.querySelectorAll(`.navbar-item, #mobile-nav-menu .list-item`)
 
   navElements = Array.prototype.filter.call(navElements, element => {
-    let outlineSelector = element.dataset.hrefSelector
+    let outlineSelector = element.dataset.outlineSelector
     return outlineSelector !== undefined
   })
 
   navElements.forEach(element => {
-    let outlineSelector = element.dataset.hrefSelector
+    let outlineSelector = element.dataset.outlineSelector
     const outlineElement = d.querySelector(outlineSelector)
     element.onclick = function () { outlineTemporarily(outlineElement, 1000) }
   })

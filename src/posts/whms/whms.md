@@ -1,8 +1,7 @@
 ---
 title: White Horse Masonry Services
 description: Letting the work of a master mason speak for itself. Built on a static webpack pipeline, responsive image plugins, a masonry gallery, and GitHub pages.
-link: /whms.html
-featured: true
+category: featured
 ---
 # White Horse Masonry Services
 This was my first freelance website, a front-facing collection of work for a masonry company. This project is important to me because the  mason involved is my very own father. My father is an extraordinary mason with over 30 years of experience. I had to make sure that people see his work properly for how great it is.

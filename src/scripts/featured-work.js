@@ -6,6 +6,9 @@ const thumbnailContext = require.context(`../posts/`, true, /thumbnail\.(png|jpe
 let html = ''
 
 markdownContext.keys().forEach(markdownPath => {
+  const fm = markdownContext(markdownPath)
+  if (fm.attributes.category !== `featured`) return
+
   let thumbnail
   thumbnailContext.keys().forEach(thumbnailPath => { // O(n^2) :(
     const thumbnailDir = thumbnailPath.slice(
@@ -17,8 +20,10 @@ markdownContext.keys().forEach(markdownPath => {
     if (thumbnailDir === markdownDir) thumbnail = thumbnailContext(thumbnailPath)
   })
 
-  const fm = markdownContext(markdownPath)
-  html += template({ ...fm.attributes, thumbnail })
+  let fileName =
+    markdownPath.slice(markdownPath.lastIndexOf('/') + 1, markdownPath.lastIndexOf('.'))
+
+  html += template({ ...fm.attributes, thumbnail, link: `/${fileName}.html` })
 })
 
 d.addEventListener(`DOMContentLoaded`, () => {

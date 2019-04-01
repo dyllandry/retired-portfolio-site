@@ -11,12 +11,15 @@ nav.navbar.is-fixed-top(role='navigation', aria-label='main navigation')
       .navbar-start
         a.navbar-item(href=`/#home`)
           | Home
-        a.navbar-item(href=`/#about` data-href-selector=`.about--tile`)
+        a.navbar-item(href=`/#about` data-outline-selector=`.about--tile`)
           | About
-        a.navbar-item(href=`/#featured-work` data-href-selector=`.featured-work--tile`)
+        a.navbar-item(href=`/#featured-work` data-outline-selector=`.featured-work--tile`)
           | Featured Work
+        a.navbar-item(href=`/#blog-tablet` data-outline-selector=`.blog-tile--outline`)
+          | Blog
       .navbar-end
     ul#mobile-nav-menu.list.has-text-right.is-radiusless(role=`menu` aria-laballedby=`burger`)
       li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`/#home` data-string=`home` data-index=`0`) Home
-      li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`/#about` data-string=`about` data-index=`1` data-href-selector=`.about--tile`) About
-      li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`/#featured-work` data-string=`featured-work` data-index=`1` data-href-selector=`.featured-work--tile`) Featured Work
+      li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`/#about` data-string=`about` data-index=`1` data-outline-selector=`.about--tile`) About
+      li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`/#featured-work` data-string=`featured-work` data-index=`2` data-outline-selector=`.featured-work--tile`) Featured Work
+      li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`/#blog-mobile` data-string=`blog` data-index=`3` data-outline-selector=`.blog-tile--outline`) Blog
