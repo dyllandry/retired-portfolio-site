@@ -2277,9 +2277,30 @@ nav.navbar[aria-label="main navigation"] {
       padding: 0.8rem 14px; }
     .post-content figure {
       padding: 0.8rem 0px; } }
+  .post-content h1,
+  .post-content h2,
+  .post-content h3,
+  .post-content h4,
+  .post-content h5 {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important; }
+  @media screen and (min-width: 769px) {
+    .post-content h1:first-child {
+      margin-top: 50px; } }
+  .post-content h2 {
+    margin-top: 50px; }
+  .post-content h3 {
+    margin-top: 50px; }
+  .post-content h4 {
+    margin-top: 30px; }
+  .post-content h5 {
+    margin-top: 30px; }
   .post-content p, .post-content ul, .post-content ol {
     font-size: 21px;
     margin: 20px 0px; }
+    @media screen and (max-width: 768px) {
+      .post-content p, .post-content ul, .post-content ol {
+        margin: 10px 0px; } }
   .post-content ul, .post-content ol {
     list-style-position: inside;
     list-style-type: initial; }
@@ -2297,7 +2318,7 @@ nav.navbar[aria-label="main navigation"] {
         margin: 25px 10px 50px 25px; } }
     @media screen and (min-width: 769px) {
       .post-content blockquote {
-        margin: 75px 75px; } }
+        margin: 40px 75px 80px 75px; } }
   .post-content .quote-attribution {
     float: right; }
 

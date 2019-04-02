@@ -40,31 +40,48 @@ body {
   h2,
   h3,
   h4,
-  h5 { @extend .title }
+  h5 { 
+    @extend .title;
+    margin-bottom: 0px!important;
+    padding-bottom: 0px!important;
+  }
 
   h1 {
     @extend .is-1;
   }
 
+  h1:first-child {
+    @include from($tablet) {
+      margin-top: 50px;
+    }
+  }
+
   h2 {
     @extend .is-2;
+    margin-top: 50px;
   }
 
   h3 {
     @extend .is-3;
+    margin-top: 50px;
   }
 
   h4 {
     @extend .is-4;
+    margin-top: 30px;
   }
 
   h5 {
     @extend .is-5;
+    margin-top: 30px;
   }
 
   p, ul, ol {
     font-size: 21px;
     margin: 20px 0px;
+    @include mobile {
+      margin: 10px 0px;
+    }
   }
 
   ul, ol {
@@ -87,7 +104,7 @@ body {
       margin: 25px 10px 50px 25px;
     }
     @include from($tablet) {
-      margin: 75px 75px;
+      margin: 40px 75px 80px 75px;
     }
   }
 
