@@ -32,3 +32,8 @@ title | string | Title to appear in lists. | featured, blog
 description | string | Description to appear in lists. | featured
 date | string | Date of the post. | blog
 subCategory | string | Subcategory of post to appear in list, e.g. tutorial, opinion, etc. | blog
+
+## Notable Project Characteristics
+1. Adding more posts is relatively easy and the necessary build pipeline is integrated with webpack. The workflow is not easy enough for non-developers to follow, though that wasn't one of my goals. The remaining complexity lets me do some detailed editing that wouldn't otherwise be possible with what more simplified workflows I can currently think of.
+1. The design is clean and simple, though I might restructure how navigation works. My efforts to simplify the site's information onto one page and my navigation bar design ended up creating an unintuitive experience. 
+1. While this is a neat custom static site build pipeline I made, and it was great as a learning tool, maintaining it and adding additional features is time consuming. Next time, I'd rather implement a prexisting CMS and static page builder so I can focus my time on more unique features than static site building itself.
