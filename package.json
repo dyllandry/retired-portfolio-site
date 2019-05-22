@@ -2,6 +2,10 @@
   "name": "final-portfolio-site",
   "version": "1.0.0",
   "description": "",
+  "engineStrict": true,
+  "engines": {
+    "node": "11.10.0"
+  },
   "scripts": {
     "start": "npm run build-posts && npx webpack-dev-server --config webpack.dev.js",
     "build": "npm run build-posts && npx webpack --config webpack.prod.js",
