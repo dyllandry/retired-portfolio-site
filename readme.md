@@ -25,10 +25,10 @@ Attributes shape how the post is described on the home page.
 
 <small>\* *Some attributes are only applicable to a specific category of post, e.g. featured or blog.*</small>
 
-attribute | value | meaning | category
+attribute | value | meaning | applicable to category
 --- | --- | --- | ---
-category | string | Determines whether to list the post in the featured list or the blog list. | any
+category | 'featured' or 'blog'| Whether to list the post in the featured list or the blog list. | featured, blog 
 title | string | Title to appear in lists. | featured, blog
 description | string | Description to appear in lists. | featured
 date | string | Date of the post. | blog
-subCategory | string | Subcategory of post, e.g. tutorial, opinion, etc. | blog
+subCategory | string | Subcategory of post to appear in list, e.g. tutorial, opinion, etc. | blog
