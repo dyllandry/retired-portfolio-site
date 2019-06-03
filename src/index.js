@@ -9,9 +9,7 @@ require(`./styles/blog-tile.scss`)
 
 // scripts
 require(`./scripts/lazyload.js`)
-require(`./scripts/burger.js`)
 require(`./scripts/handle-outline.js`)
-require(`./scripts/nav-location-outline.js`)
 require(`./scripts/featured-work.js`)
 require(`./scripts/insert-blog-posts.js`)
 require(`./scripts/fade-in-icons.js`)

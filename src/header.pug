@@ -3,23 +3,3 @@ nav.navbar.is-fixed-top(role='navigation', aria-label='main navigation')
     .navbar-brand
       a.navbar-item(href='/#')
         h1.title Dylan Landry
-      button#burger.navbar-burger.burger(type='button' role='button', aria-label='menu', aria-expanded='false', aria-haspopup='true' aria-controls='mobile-nav-menu')
-        span(aria-hidden='true')
-        span(aria-hidden='true')
-        span(aria-hidden='true')
-    .navbar-menu
-      .navbar-start
-        a.navbar-item(href=`/#home`)
-          | Home
-        a.navbar-item(href=`/#about` data-outline-selector=`.about--tile`)
-          | About
-        a.navbar-item(href=`/#featured-work` data-outline-selector=`.featured-work--tile`)
-          | Featured Work
-        a.navbar-item(href=`/#blog-tablet` data-outline-selector=`.blog-tile--outline`)
-          | Blog
-      .navbar-end
-    ul#mobile-nav-menu.list.has-text-right.is-radiusless(role=`menu` aria-laballedby=`burger`)
-      li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`/#home` data-string=`home` data-index=`0`) Home
-      li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`/#about` data-string=`about` data-index=`1` data-outline-selector=`.about--tile`) About
-      li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`/#featured-work` data-string=`featured-work` data-index=`2` data-outline-selector=`.featured-work--tile`) Featured Work
-      li.list-item.is-radiusless.is-size-5(role=`menuitem` tabindex=-1 data-href=`/#blog-mobile` data-string=`blog` data-index=`3` data-outline-selector=`.blog-tile--outline`) Blog
