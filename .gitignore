@@ -1,3 +1,4 @@
 node_modules/
 .ignore
 *.swp
+.DS_Store
