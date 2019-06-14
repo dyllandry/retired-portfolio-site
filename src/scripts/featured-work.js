@@ -2,6 +2,9 @@ const d = document
 const template = require(`../partials/featured-work-item.pug`)
 const markdownContext = require.context(`../posts/`, true, /\.md$/)
 const thumbnailContext = require.context(`../posts/`, true, /thumbnail\.(png|jpeg|jpg)/)
+const basePath = process.env.ASSET_PATH !== undefined
+  ? process.env.ASSET_PATH + '/'
+  : ''
 
 let html = ''
 
@@ -23,7 +26,7 @@ markdownContext.keys().forEach(markdownPath => {
   let fileName =
     markdownPath.slice(markdownPath.lastIndexOf('/') + 1, markdownPath.lastIndexOf('.'))
 
-  html += template({ ...fm.attributes, thumbnail, link: `/${fileName}.html` })
+  html += template({ ...fm.attributes, thumbnail, link: `/${basePath + fileName}.html` })
 })
 
 d.addEventListener(`DOMContentLoaded`, () => {

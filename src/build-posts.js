@@ -1,3 +1,4 @@
+require('dotenv').config()
 const Hwp = require(`html-webpack-plugin`)
 const debug = require(`debug`)(`build-posts`)
 const glob = require(`glob`)
@@ -20,7 +21,11 @@ const filesHtml = filesFm.map((fm, i) => {
   const template = pug.compileFile(path.resolve(__dirname, `posts`, `post.pug`))
   const fullHtml = template({
     postHtml: postHtml,
-    title: filesFm[i].attributes.title
+    title: filesFm[i].attributes.title,
+    publicPath: (process.env.ASSET_PATH !== undefined)
+      ? `/${process.env.ASSET_PATH}/`
+      : '/'
+
   })
   return fullHtml
 })

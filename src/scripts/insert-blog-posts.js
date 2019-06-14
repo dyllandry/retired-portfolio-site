@@ -1,4 +1,7 @@
 const template = require(`../partials/blog-list-item.pug`)
+const basePath = process.env.ASSET_PATH !== undefined
+  ? process.env.ASSET_PATH + '/'
+  : ''
 
 let html = ''
 
@@ -9,7 +12,7 @@ postContext.keys().forEach(postPath => {
   let fileName =
     postPath.slice(postPath.lastIndexOf('/') + 1, postPath.lastIndexOf('.'))
 
-  html += template({ ...postFm.attributes, link: `/${fileName}.html` })
+  html += template({ ...postFm.attributes, link: `/${basePath + fileName}.html` })
 })
 
 document.addEventListener(`DOMContentLoaded`, () => {

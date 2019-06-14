@@ -1,3 +1,4 @@
+const Dotenv = require('dotenv-webpack')
 const path = require(`path`)
 const HtmlWebpackPlugin = require(`html-webpack-plugin`)
 const CleanWebpackPlugin = require(`clean-webpack-plugin`)
@@ -8,18 +9,25 @@ const merge = require(`merge`)
 
 const entry = merge(
   { index: './src/index.js' },
-  buildPosts.entries)
+  buildPosts.entries
+)
+
+const publicPath = `/${process.env.ASSET_PATH}/`
+const postHwps = buildPosts.GetPlugins()
 
 module.exports = {
   entry,
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name]-bundle.js'
+    filename: '[name]-bundle.js',
+    publicPath
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    publicPath
   },
   plugins: [
+    new Dotenv(),
     new FaviconsWebpackPlugin({
       logo: './src/d-favicon.png',
       title: `Dylan's Portfolio Site`
@@ -31,9 +39,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `./src/index.pug`,
       filename: `index.html`,
-      chunks: ['index']
+      chunks: ['index'],
+      templateParameters: {
+        publicPath
+      }
     })
-  ].concat(buildPosts.GetPlugins()),
+  ].concat(postHwps),
   module: {
     rules: [{
       test: /\.pug$/,
