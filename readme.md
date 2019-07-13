@@ -3,6 +3,8 @@ A webpack static site builder for Dylan Landry's portfolio site.
 
 [Github Repository](https://github.com/dyllandry/final-portfolio-site)
 
+![A screen shot of this project's home page.](screen-shot.png)
+
 ## Scripts
 - Begin webpack dev server: `npm start`
 - Build to `dist/` dir: `npm run build`
